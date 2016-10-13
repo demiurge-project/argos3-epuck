@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+
+  <!-- ************* -->
+  <!-- * Framework * -->
+  <!-- ************* -->
+  <framework>
+    <experiment length="0"
+                ticks_per_second="10"/>
+  </framework>
+
+  <!-- *************** -->
+  <!-- * Controllers * -->
+  <!-- *************** -->
+  <controllers>
+    <!-- C++ controller -->
+    <tam_epuck_ctrlr id="tam_epuck"
+                     library="/Users/garattonilorenzo/Desktop/phd/argos3-epuck/build_epuck_simulator/testing/libtam_experiment_epuck">
+      <actuators>
+        <epuck_base_leds implementation="default" medium="leds"/>
+        <!-- <epuck_rgb_leds implementation="default" medium="leds"/> -->
+        <epuck_wheels implementation="default"/>
+        <!-- <epuck_range_and_bearing implementation="medium" medium="rab" data_size="4"/> -->
+        <!-- <epuck_ircom implementation="medium" medium="ircom" show_rays="true"/> -->
+      </actuators>
+      <sensors>
+        <epuck_proximity implementation="default" show_rays="false"/>
+        <epuck_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="true" noise_std_dev=".01" />
+        <!-- <epuck_light implementation="default" show_rays="true"/> -->
+        <!-- <epuck_ground implementation="rot_z_only" show_rays="true"/> -->
+        <!-- <epuck_range_and_bearing implementation="medium" medium="rab" show_rays="true" data_size="4"/> -->
+        <epuck_ircom implementation="medium" medium="ircom" show_rays="false"/>
+      </sensors>
+      <params LWS='5' RWS='5'/>
+    </tam_epuck_ctrlr>
+  </controllers>
+
+  <!-- ********* -->
+  <!-- * Arena * -->
+  <!-- ********* -->
+  <arena size="4, 4, 1" center="0,0,0">
+    <!-- <box id="wall_n" size="0.12, 0.12, 0.12" movable="false"> -->
+    <!--   <body position="1, 0, 0" orientation="90, 0, 0"/> -->
+    <!-- </box> -->
+
+    <!-- <box id="wall_s" size="0.12, 0.12, 0.12" movable="false"> -->
+    <!--   <body position="0, 0, 0" orientation="90, 0, 0"/> -->
+    <!-- </box> -->
+
+    <tams java_class_path="/Users/garattonilorenzo/Desktop/phd/iridia-tam/coordinator/bin"
+          experiment_class="be/ac/ulb/iridia/tam/user/experiments/ARGoSExperiment"
+          rab_medium="ircom"
+          led_medium="leds">
+      <tam id="TAM00" show_rays="true" movable="false">
+        <body position="1,0,0" orientation="0,0,0" />
+      </tam>
+      <tam id="TAM01" show_rays="true" movable="false">
+        <body position="0,0,0" orientation="180,0,0" />
+      </tam>
+    </tams>
+
+    <e-puck id="epuck10">
+      <body position="0.6, 0, 0"
+            orientation="0, 0, 0"/>
+      <controller config="tam_epuck" />
+    </e-puck>
+  </arena>
+
+  <!-- ******************* -->
+  <!-- * Physics engines * -->
+  <!-- ******************* -->
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <!-- ********* -->
+  <!-- * Media * -->
+  <!-- ********* -->
+  <media>
+    <led id="leds" grid_size="4,4,1"/>
+    <range_and_bearing id="ircom"/>
+  </media>
+
+  <!-- ***************** -->
+  <!-- * Visualization * -->
+  <!-- ***************** -->
+  <visualization>
+    <qt-opengl>
+      <camera>
+        <placement idx="0"
+                   position="0,0,2"
+                   look_at="0,0,0"
+                   lens_focal_length="26" />
+      </camera>
+    </qt-opengl>
+  </visualization>
+
+</argos-configuration>

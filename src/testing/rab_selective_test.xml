@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+
+  <!-- ************* -->
+  <!-- * Framework * -->
+  <!-- ************* -->
+  <framework>
+    <experiment length="0"
+                ticks_per_second="10"/>
+  </framework>
+
+  <!-- *************** -->
+  <!-- * Controllers * -->
+  <!-- *************** -->
+  <controllers>
+    <!-- C++ controller -->
+    <rab_selective_test id="rab_selective_test"
+                        library="simulator_build/testing/librab_selective_test.so">
+      <actuators>
+        <epuck_base_leds implementation="default" medium="leds"/>
+        <epuck_rgb_leds implementation="default" medium="leds"/>
+        <epuck_wheels implementation="default"/>
+        <epuck_range_and_bearing implementation="medium" show_rays="false" medium="rab" data_size="2"/>
+        <!-- <epuck_ircom implementation="medium" medium="ircom" show_rays="true"/> -->
+      </actuators>
+      <sensors>
+        <epuck_proximity implementation="default" show_rays="false"/>
+        <!--epuck_omnidirectional_camera implementation="rot_z_only" medium="leds" show_rays="false" noise_std_dev=".01" /-->
+        <!-- <epuck_light implementation="default" show_rays="true"/> -->
+        <!-- <epuck_ground implementation="rot_z_only" show_rays="true"/> -->
+        <epuck_range_and_bearing implementation="medium" medium="rab" show_rays="true" data_size="2"/>
+        <!--epuck_ircom implementation="medium" medium="ircom" show_rays="false"/-->
+      </sensors>
+      <params LWS='0' RWS='0'/>
+    </rab_selective_test>
+  </controllers>
+
+  <!-- ********* -->
+  <!-- * Arena * -->
+  <!-- ********* -->
+  <arena size="5, 5, 1" center="0,0,0">
+    <box id="wall_n" size="0.12, 0.12, 0.12" movable="false">
+       <body position="1, 0, 0" orientation="90, 0, 0"/>
+    </box>
+    <!-- <box id="wall_s" size="0.12, 0.12, 0.12" movable="false"> -->
+    <!--   <body position="0, 0, 0" orientation="90, 0, 0"/> -->
+    <!-- </box> -->
+
+    <!--tams java_class_path="/home/xavier/iridia-tam/coordinator/src/"
+          experiment_class="be/ac/ulb/iridia/tam/user/experiments/ARGoSExperiment">
+      <tam id="TAM00" show_rays="true" medium="ircom">
+        <body position="1,0,0" orientation="0,0,0" />
+      </tam>
+      <tam id="TAM01" show_rays="true" medium="ircom">
+        <body position="0,0,0" orientation="180,0,0" />
+      </tam>
+    </tams-->
+
+    <e-puck id="epuck10">
+      <body position="0, 0, 0"
+            orientation="0, 0, 0"/>
+      <controller config="rab_selective_test" />
+    </e-puck>
+    <e-puck id="epuck1">
+      <body position="0, 0.1, 0"
+            orientation="45, 0, 0"/>
+      <controller config="rab_selective_test" />
+    </e-puck>
+  </arena>
+
+  <!-- ******************* -->
+  <!-- * Physics engines * -->
+  <!-- ******************* -->
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <!-- ********* -->
+  <!-- * Media * -->
+  <!-- ********* -->
+  <media>
+    <led id="leds" grid_size="1,1,1"/>
+    <range_and_bearing id="ircom"/>
+    <range_and_bearing id="rab"/>
+  </media>
+
+  <!-- ***************** -->
+  <!-- * Visualization * -->
+  <!-- ***************** -->
+  <visualization>
+    <qt-opengl>
+      <camera>
+        <placement idx="0"
+                   position="0,0,1"
+                   look_at="0,0,0"
+                   lens_focal_length="40" />
+      </camera>
+    </qt-opengl>
+  </visualization>
+
+</argos-configuration>

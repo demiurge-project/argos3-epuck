@@ -1,0 +1,8 @@
+EPUCK FIRMWARE
+
+----INSTALLATION----
+1-Download and install MPLABX
+2-cd firmware
+./build_firmware
+----FIRMWARE UPDATE ON EPUCK-----
+./epuck_upload -f epuck_firmware.hex /dev/[name of the bluetooth serial port of the epuck]

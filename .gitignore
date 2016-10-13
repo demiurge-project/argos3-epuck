@@ -1,0 +1,9 @@
+*build*
+experiments
+*.txt
+*.aux
+*.log
+*.out
+*.synctex.gz
+*\~*
+.DS_Store

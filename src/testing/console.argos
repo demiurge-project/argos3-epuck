@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+
+  <!-- ************* -->
+  <!-- * Framework * -->
+  <!-- ************* -->
+  <framework>
+    <experiment length="0" ticks_per_second="10"/>
+  </framework>
+
+  <!-- *************** -->
+  <!-- * Controllers * -->
+  <!-- *************** -->
+  <controllers>
+    <!-- C++ controller -->
+    <console_controller id="console" library="build/testing/libconsole.so">
+      <actuators>
+        <epuck_base_leds implementation="default" medium="leds"/>
+        <epuck_rgb_leds implementation="default" medium="leds"/>
+        <epuck_wheels implementation="default"/>
+        <epuck_range_and_bearing implementation="medium" medium="rab" data_size="4"/>
+      </actuators>
+      <sensors>
+	<!-- epuck_proximity implementation="default" show_rays="false" calibrated="true" low_level_config="/home/root/gfrancesca/low_level_configuration/proximity_sensor.xml"/ -->
+	<!-- epuck_light implementation="default" show_rays="true" calibrated="true" low_level_config="/home/root/gfrancesca/low_level_configuration/light_sensor.xml"/ -->
+	<!-- epuck_ground implementation="rot_z_only" show_rays="false" calibrated="true" low_level_config="/home/root/gfrancesca/low_level_configuration/base_ground_sensor.xml"/ -->
+	<epuck_proximity implementation="default" show_rays="false" />
+        <epuck_light implementation="default" show_rays="true" />
+        <epuck_ground implementation="rot_z_only" show_rays="false" />
+        <epuck_range_and_bearing implementation="medium" medium="rab" show_rays="true" data_size="2"/>
+      </sensors>
+      <!-- if localhost set IP="127.0.0.1", else check your IP, it should be something like IP="10.0.1.x" -->
+      <params IP="127.0.0.1" PORT="1050" />
+    </console_controller>
+  </controllers>
+
+  <!-- ********* -->
+  <!-- * Arena * -->
+  <!-- ********* -->
+  <arena size="5, 5, 1" center="0,0,0.5">
+    <floor id="floor"
+           source="image"
+           path="src/testing/grayscale.jpg"/>
+    <box id="wall_e" size="2, 0.2, 0.2" movable="false">
+      <body position="2, 0, 0" orientation="90, 0, 0"/>
+   </box>
+
+    <e-puck id="epuck10">
+      <body position="1.77, 0, 0"
+            orientation="0, 0, 0"/>
+      <controller config="console" />
+    </e-puck>
+
+    <e-puck id="epuck15">
+      <body position="1.5, 0, 0"
+            orientation="0, 0, 0"/>
+      <controller config="console" />
+    </e-puck>
+
+    
+    <light id="light0"
+           position="1,0,0.25"
+           orientation="0,0,0"
+           color="yellow"
+           intensity="1.0"
+           medium="leds"/>
+  </arena>
+
+  <!-- ******************* -->
+  <!-- * Physics engines * -->
+  <!-- ******************* -->
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <!-- ********* -->
+  <!-- * Media * -->
+  <!-- ********* -->
+  <media>
+    <led id="leds" grid_size="1,1,1"/>
+    <range_and_bearing id="rab"/>
+    <range_and_bearing id="ircom"/>
+    <!-- for ircom: check argos3-epuck/src/plugins/robots/e-puck/simulator/epuck_ircom_default_sensor.cpp -->
+  </media>
+
+  <!-- ***************** -->
+  <!-- * Visualization * -->
+  <!-- ***************** -->
+  <visualization>
+    <qt-opengl>
+      <camera>
+        <placement idx="0"
+                   position="1.5,0,1"
+                   look_at="1.5,0,0"
+                   lens_focal_length="10" />
+      </camera>
+    </qt-opengl>
+  </visualization>
+
+</argos-configuration>

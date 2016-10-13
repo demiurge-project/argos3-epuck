@@ -1,0 +1,30 @@
+main
+    init
+        wait for linux board to boot (a certain amount of time, no specific calculation)
+        init some things
+        make the led blinking in circle, just one time (quick)
+    infinite loop
+        wait to receive a specific char from the board (blinking in circle meanwhile)
+
+        receive sensors configuration from the board
+        ir com start listening
+
+        infinite loop
+            stop ircom (avoid interruption)
+            send BaseSensorState with updated informations from the board
+            receive BaseActuatorState from the board
+
+            if BaseActuatorState.Reset = 'R' then
+                BREAK
+
+            if BaseActuatorState.IRComEnabled then
+                ir com restart + listen
+                ir com send BaseActuatorState.IRComMessageData
+                wait until the ir come msg is send
+                wait a certain amount of time between sending and receiving
+
+                if msg received from the ircom then
+                    update the BaseSensorState.IRComMEssage
+                    BaseSensorState.IRComHasReceived = 1
+                else
+                    BaseSensorState.IRComHasReceived = 0

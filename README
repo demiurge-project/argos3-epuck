@@ -1,0 +1,24 @@
+-= HOW TO COMPILE =-
+
+NOTE: Before executing the following commands, you need to download, compile, and install argos3: https://github.com/ilpincy/argos3
+
+For simulation:
+
+$ cd argos3-epuck
+$ mkdir build_simepuck
+$ cd build_simepuck
+$ cmake ../src
+$ make
+$ sudo make install
+
+If you wish to load the library without installing:
+$ export ARGOS_PLUGIN_PATH=build_simepuck/plugins/robots/e-puck
+
+For the real robot, after installing the cross compilation tool (detailed instructions in doc/installation.pdf):
+
+$ cd argos3-epuck
+$ mkdir build_realepuck
+$ cd build_realepuck
+$ cmake -DCMAKE_TOOLCHAIN_FILE=../src/cmake/TargetEPuck.cmake ../src
+$ make
+$ sudo make install

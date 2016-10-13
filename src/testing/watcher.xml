@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+
+  <!-- ************* -->
+  <!-- * Framework * -->
+  <!-- ************* -->
+  <framework>
+    <experiment length="5000"
+                ticks_per_second="10"/>
+  </framework>
+
+  <!-- *************** -->
+  <!-- * Controllers * -->
+  <!-- *************** -->
+  <controllers>
+    <!-- C++ controller -->
+    <watcher_controller id="watcher"
+                        library="build_linux/testing/libwatcher.so">
+      <actuators>
+        <epuck_base_leds implementation="default" medium="leds"/>
+        <!--epuck_rgb_leds implementation="default" medium="leds"/-->
+        <epuck_wheels implementation="default"/>
+        <!--epuck_range_and_bearing implementation="medium" medium="rab" delay="20000" data_size="3"/-->
+        <!-- <epuck_ircom implementation="medium" medium="ircom" show_rays="true"/> -->
+      </actuators>
+      <sensors>
+        <epuck_proximity implementation="default" show_rays="false"/>
+        <!--epuck_light implementation="default" show_rays="false"/-->
+        <!--epuck_ground implementation="rot_z_only" show_rays="false"/-->
+        <!--epuck_range_and_bearing implementation="medium" medium="rab" show_rays="false" data_size="3"/-->
+        <epuck_omnidirectional_camera implementation="default" low_level_config="/home/root/lorenzo/low_level_configuration/omnidirectional_camera_sensor.xml"/>
+        <!-- <epuck_ircom implementation="medium" medium="ircom" show_rays="false"/> -->
+      </sensors>
+      <params LWS='0' RWS='0'/>
+    </watcher_controller>
+  </controllers>
+
+  <!-- ********* -->
+  <!-- * Arena * -->
+  <!-- ********* -->
+  <arena size="5, 5, 1" center="0,0,0.5">
+    <floor id="floor"
+           source="image"
+           path="src/testing/grayscale.jpg"/>
+    <box id="wall_e" size="2, 0.2, 0.2" movable="false">
+      <body position="2, 0, 0" orientation="90, 0, 0"/>
+    </box>
+    <e-puck id="epuck10">
+      <body position="1.77, 0, 0"
+            orientation="0, 0, 0"/>
+      <controller config="watcher" />
+    </e-puck>
+    <e-puck id="epuck11">
+      <body position="1.77, 0.3, 0"
+            orientation="0, 0, 0"/>
+      <controller config="watcher" />
+    </e-puck>
+    <light id="light0"
+           position="1,0,0.25"
+           orientation="0,0,0"
+           color="yellow"
+           intensity="1.0"
+           medium="leds"/>
+  </arena>
+
+  <!-- ******************* -->
+  <!-- * Physics engines * -->
+  <!-- ******************* -->
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <!-- ********* -->
+  <!-- * Media * -->
+  <!-- ********* -->
+  <media>
+    <led id="leds" grid_size="1,1,1"/>
+    <range_and_bearing id="rab"/>
+    <range_and_bearing id="ircom"/>
+  </media>
+
+  *****************
+  * Visualization *
+  *****************
+  <visualization>
+    <qt-opengl>
+      <camera>
+        <placement idx="0"
+                   position="1.5,0,1"
+                   look_at="1.5,0,0"
+                   lens_focal_length="10" />
+      </camera>
+    </qt-opengl>
+  </visualization>
+
+</argos-configuration>

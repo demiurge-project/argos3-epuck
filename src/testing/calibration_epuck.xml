@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+  <framework>
+    <system threads="0" />
+    <experiment length="0"
+                ticks_per_second="10"
+                random_seed="128" />
+  </framework>
+  <controllers>
+    <calibrate_epuck id="range_and_bearing">
+      <actuators>
+        <epuck_wheels/>
+        <epuck_range_and_bearing implementation="default"
+                                 data_size="1"
+                                 range="115" />
+      </actuators>
+      <sensors>
+        <epuck_range_and_bearing implementation="default"
+                                 show_rays="false"
+                                 check_occlusions="true"
+                                 data_size="1"
+                                 calibrated="false"/>
+      </sensors>
+      <params
+          wheel_speed = "0.8"
+          ignore_first_samples = "5"
+          num_samples = "100"
+          range_and_bearing_configuration_file = "/home/root/ARGoS/low_level_configuration/range_and_bearing_sensor.xml"
+          />
+    </calibrate_epuck>
+
+    <calibrate_epuck id="light">
+      <actuators>
+        <epuck_wheels/>
+      </actuators>
+      <sensors>
+        <epuck_light calibrated="false"/>
+      </sensors>
+      <params
+          wheel_speed = "4.0"
+          ignore_first_samples = "2"
+          num_samples = "100"
+          light_configuration_file = "/home/root/ARGoS/low_level_configuration/light_sensor.xml"
+          />
+    </calibrate_epuck>
+
+    <calibrate_epuck id="proximity">
+      <actuators>
+        <epuck_wheels/>
+      </actuators>
+      <sensors>
+        <epuck_proximity calibrated="false"/>
+      </sensors>
+      <params
+          wheel_speed = "4.0"
+          ignore_first_samples = "2"
+          num_samples = "100"
+          proximity_configuration_file = "/home/root/ARGoS/low_level_configuration/proximity_sensor.xml"
+          />
+    </calibrate_epuck>
+
+    <calibrate_epuck id="ground">
+      <actuators>
+        <epuck_wheels/>
+      </actuators>
+      <sensors>
+        <epuck_ground calibrated="false"/>
+      </sensors>
+      <params
+          wheel_speed = "4.0"
+          ignore_first_samples = "2"
+          num_samples = "100"
+          ground_configuration_file = "/home/root/ARGoS/low_level_configuration/ground_sensor.xml"
+          />
+    </calibrate_epuck>
+
+  </controllers>
+
+</argos-configuration>
