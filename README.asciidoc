@@ -1,11 +1,11 @@
 ARGoS-Epuck README
-=============
+===================
 :Author: Lorenzo Garattoni
 :Email:  lgaratto@ulb.ac.be
 :Date:   October 15th, 2016
 
 What is ARGoS-Epuck?
----------------
+--------------------
 
 ARGoS-Epuck is a plugin that enables the use of the E-puck robot in ARGoS. ARGoS-Epuck contains
 the software modules for both the physical robot and its simulated version. Therefore, the
@@ -19,14 +19,14 @@ an Omnivision module.
 ARGoS-Epuck is released under the terms of the MIT license.
 
 Downloading ARGoS-Epuck
-------------------
+-----------------------
 
 You can download the development sources through git:
 
  $ git clone https://github.com/lgarattoni/argos3-epuck.git argos3-epuck
 
 Compiling ARGoS-Epuck
-----------------
+---------------------
 
 Requirements
 ~~~~~~~~~~~~
@@ -41,12 +41,12 @@ The compilation of ARGoS is configured through CMake.
 Compiling for the simulator
 +++++++++++++++++++++++++++
 
-$ cd argos3-epuck
-$ mkdir build_simepuck
-$ cd build_simepuck
-$ cmake ../src
-$ make
-$ sudo make install
+ $ cd argos3-epuck
+ $ mkdir build_simepuck
+ $ cd build_simepuck
+ $ cmake ../src
+ $ make
+ $ sudo make install
 
 If you wish to load the library without installing:
 $ export ARGOS_PLUGIN_PATH=build_simepuck/plugins/robots/e-puck
@@ -56,9 +56,9 @@ Compiling for the E-puck
 
 For the real robot, after installing the cross compilation tool and cross-compiling and installing argos3 (detailed instructions in doc/installation.pdf):
 
-$ cd argos3-epuck
-$ mkdir build_realepuck
-$ cd build_realepuck
-$ cmake -DCMAKE_TOOLCHAIN_FILE=../src/cmake/TargetEPuck.cmake ../src
-$ make
-$ sudo make install
+ $ cd argos3-epuck
+ $ mkdir build_realepuck
+ $ cd build_realepuck
+ $ cmake -DCMAKE_TOOLCHAIN_FILE=../src/cmake/TargetEPuck.cmake ../src
+ $ make
+ $ sudo make install
