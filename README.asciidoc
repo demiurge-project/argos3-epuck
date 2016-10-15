@@ -1,0 +1,64 @@
+ARGoS-Epuck README
+=============
+:Author: Lorenzo Garattoni
+:Email:  lgaratto@ulb.ac.be
+:Date:   October 15th, 2016
+
+What is ARGoS-Epuck?
+---------------
+
+ARGoS-Epuck is a plugin that enables the use of the E-puck robot in ARGoS. ARGoS-Epuck contains
+the software modules for both the physical robot and its simulated version. Therefore, the
+user can develope a control software for the E-puck and test in a virtual environment and then port
+the same control software, without modifications, on the real E-puck. In order to be used on the
+real E-puck, the plugin requires the robots to be equipped with a Linux extension board (Gumstix Overo computer-on-module (COM)).
+Depending on the needs of the user, the capabilities of the basic model of the E-puck 
+can be enhanced with the following extensions: a ground sensor, a range-and-bearing board, and
+an Omnivision module.
+
+ARGoS-Epuck is released under the terms of the MIT license.
+
+Downloading ARGoS-Epuck
+------------------
+
+You can download the development sources through git:
+
+ $ git clone https://github.com/lgarattoni/argos3-epuck.git argos3-epuck
+
+Compiling ARGoS-Epuck
+----------------
+
+Requirements
+~~~~~~~~~~~~
+
+Before executing the following commands, you need to download, compile, and install argos3: https://github.com/ilpincy/argos3
+
+Compiling the code
+~~~~~~~~~~~~~~~~~~
+
+The compilation of ARGoS is configured through CMake.
+
+Compiling for the simulator
++++++++++++++++++++++++++++
+
+$ cd argos3-epuck
+$ mkdir build_simepuck
+$ cd build_simepuck
+$ cmake ../src
+$ make
+$ sudo make install
+
+If you wish to load the library without installing:
+$ export ARGOS_PLUGIN_PATH=build_simepuck/plugins/robots/e-puck
+
+Compiling for the E-puck
+++++++++++++++++++++++++
+
+For the real robot, after installing the cross compilation tool and cross-compiling and installing argos3 (detailed instructions in doc/installation.pdf):
+
+$ cd argos3-epuck
+$ mkdir build_realepuck
+$ cd build_realepuck
+$ cmake -DCMAKE_TOOLCHAIN_FILE=../src/cmake/TargetEPuck.cmake ../src
+$ make
+$ sudo make install
