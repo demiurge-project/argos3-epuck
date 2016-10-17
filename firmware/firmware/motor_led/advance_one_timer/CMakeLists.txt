@@ -1,0 +1,1 @@
+add_library(motor_led_advance STATIC e_agenda.c e_led.c e_motors.c e_remote_control.c)

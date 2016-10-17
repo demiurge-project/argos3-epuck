@@ -1,0 +1,1 @@
+add_library(bluetooth STATIC e_bluetooth.c)

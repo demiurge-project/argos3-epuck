@@ -1,0 +1,1 @@
+add_library(I2C STATIC e_I2C_master_module.c e_I2C_protocol.c)

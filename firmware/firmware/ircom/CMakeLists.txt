@@ -1,0 +1,2 @@
+add_library(ircom STATIC  ircom.c  ircom.h  ircomMessages.c  ircomMessages.h  ircomReceive.c  ircomReceive.h  ircomSend.c  ircomSend.h  ircomTools.c  ircomTools.h)
+target_link_libraries(ircom advance_a_d)
