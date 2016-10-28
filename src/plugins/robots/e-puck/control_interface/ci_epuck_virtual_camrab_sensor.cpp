@@ -304,7 +304,7 @@ namespace argos {
         Real fReferenceAngle = RadiansToDegrees(vec_blobs.at(0)->Angle);
         for (std::vector<CCI_EPuckOmnidirectionalCameraSensor::SBlob*>::iterator it = vec_blobs.begin(); it != vec_blobs.end(); ++it) {
             fCurrentAngle = RadiansToDegrees((*it)->Angle);
-            if (abs(fCurrentAngle - fReferenceAngle) > 300) {
+            if (abs(int(fCurrentAngle - fReferenceAngle)) > 300) {
                 if (fCurrentAngle > 300) {
                     vecAllAngles.push_back(fCurrentAngle-360);
                 }
