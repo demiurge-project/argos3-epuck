@@ -12,7 +12,7 @@
 ARGOS_CORE_PATH=/usr/local/angstrom/arm/arm-angstrom-linux-gnueabi/usr/lib/argos3
 
 # Directory location of the argos3 plugin library
-ARGOS_PLUGIN_PATH=../epuck_build/plugins/robots/e-puck
+ARGOS_PLUGIN_PATH=../build_realepuck/plugins/robots/e-puck
 
 # Base IP address for the e-pucks [NOTE: do not supply the . at the end!]
 ROBOT_BASE_IP=10.0.1

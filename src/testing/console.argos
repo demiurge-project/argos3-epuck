@@ -13,7 +13,7 @@
   <!-- *************** -->
   <controllers>
     <!-- C++ controller -->
-    <console_controller id="console" library="build/testing/libconsole.so">
+    <console_controller id="console" library="../../build/testing/libconsole.so">
       <actuators>
         <epuck_base_leds implementation="default" medium="leds"/>
         <epuck_rgb_leds implementation="default" medium="leds"/>
@@ -40,7 +40,7 @@
   <arena size="5, 5, 1" center="0,0,0.5">
     <floor id="floor"
            source="image"
-           path="src/testing/grayscale.jpg"/>
+           path="grayscale.jpg"/>
     <box id="wall_e" size="2, 0.2, 0.2" movable="false">
       <body position="2, 0, 0" orientation="90, 0, 0"/>
    </box>
