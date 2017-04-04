@@ -36,7 +36,7 @@ endif(ARGOS_BUILD_FOR_SIMULATOR)
 # Check for Qt when compiling for the local e-puck tools
 #
 if(ARGOS_BUILD_FOR_LOCALEPUCK)
-  find_package(Qt4 REQUIRED QtCore QtGui)
+  find_package(Qt5 COMPONENTS Widgets Gui)
 endif(ARGOS_BUILD_FOR_LOCALEPUCK)
 
 #
@@ -45,7 +45,7 @@ endif(ARGOS_BUILD_FOR_LOCALEPUCK)
 #
 if(NOT ARGOS_BUILD_FOR_SIMULATOR)
   find_package(Pthreads)
-  if(NOT PTHREADS_FOUND)  
+  if(NOT PTHREADS_FOUND)
     message(FATAL_ERROR "Required library pthreads not found.")
   endif(NOT PTHREADS_FOUND)
   add_definitions(${PTHREADS_DEFINITIONS})

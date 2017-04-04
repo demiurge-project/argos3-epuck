@@ -17,7 +17,7 @@
 #include <QMouseEvent>
 #include <QKeyEvent>
 #include <QDial>
- #include <QTextEdit>
+#include <QTextEdit>
 
 #include <math.h>
 #include <iostream>

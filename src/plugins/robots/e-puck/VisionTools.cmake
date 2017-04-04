@@ -1,7 +1,6 @@
 #
-# Include CMake's Qt definitions
+# We use  CMake's Qt includes of ArGoS3
 #
-include(${QT_USE_FILE})
 
 #
 # Vision headers
@@ -15,20 +14,13 @@ set(ARGOS3_HEADERS_PLUGINS_ROBOTS_EPUCK_REALROBOT_VISION
   real_robot/vision/image.h
   real_robot/vision/image_grabber.h
   real_robot/vision/distance_converter.h)
+
 #
 # Vision MOC headers
-# processed by Qt's MOC utility
+# The MOC is now automatic with QT5
 #
-set(ARGOS3_MOC_HEADERS_PLUGINS_ROBOTS_EPUCK_REALROBOT_VISION
-  real_robot/vision/epuck_camera_client_blob_detector_configurator.h
-  real_robot/vision/epuck_camera_client_image_grabber_configurator.h
-  real_robot/vision/epuck_camera_client_distance_converter_configurator.h
-  real_robot/vision/epuck_camera_client_main_window.h)
-#
-# Run the moc utility
-#
-qt4_wrap_cpp(ARGOS3_MOC_SOURCE_PLUGINS_ROBOTS_EPUCK_REALROBOT_VISION
-  ${ARGOS3_MOC_HEADERS_PLUGINS_ROBOTS_EPUCK_REALROBOT_VISION})
+
+
 #
 # Vision sources
 #
@@ -50,8 +42,9 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 #
 add_executable(epuck_camera_configurator_client
   ${ARGOS3_CLIENT_SOURCES_PLUGINS_ROBOTS_EPUCK_REALROBOT_VISION})
+
 target_link_libraries(epuck_camera_configurator_client
-  ${QT_LIBRARIES}
+  ${ARGOS_QTOPENGL_LIBRARIES}
   argos3core_${ARGOS_BUILD_FOR})
 
 
