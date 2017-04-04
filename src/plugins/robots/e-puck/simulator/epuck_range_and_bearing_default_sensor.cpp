@@ -64,7 +64,7 @@ void CEPuckRABDefaultSensor::Init(TConfigurationNode& t_tree) {
         GetNodeAttributeOrDefault(t_tree, "loss_probability", m_fLossProbability, m_fLossProbability);
 
         m_pcRNG = CRandom::CreateRNG("argos");
-    
+
         if(m_bRealRangeNoise){
             /* REAL readings
            DISTANCE  mu      sigma
