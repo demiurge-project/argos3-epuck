@@ -155,7 +155,7 @@ CEPuckEntity::CEPuckEntity(const std::string& str_id,
                                                      0.8f,
                                                      m_pcEmbodiedEntity->GetOriginAnchor(),
                                                      *m_pcEmbodiedEntity,
-                                                     CVector3(0.0f, 0.0f, RAB_ELEVATION));
+                                                     CVector3(0.0f, 0.0f, RAB_ELEVATION),CQuaternion().FromEulerAngles(CRadians::ZERO,CRadians::ZERO,CRadians::ZERO));
       AddComponent(*m_pcRABEquippedEntity);
       /* To improve speed, disable the RAB equipped entity
         * It will be enabled only by a RAB actuator, if used */

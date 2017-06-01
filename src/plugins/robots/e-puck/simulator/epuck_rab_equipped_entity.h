@@ -47,7 +47,7 @@ public:
                             SAnchor& s_anchor,
                             CEmbodiedEntity& c_entity_body,
                             const CVector3& c_position = CVector3(),
-                            const CQuaternion& c_orientation = CQuaternion());
+                            const CQuaternion& c_orientation = CQuaternion().FromEulerAngles(CRadians::ZERO,CRadians::ZERO,CRadians::ZERO));
 
 
     virtual ~CEpuckRABEquippedEntity() {}
