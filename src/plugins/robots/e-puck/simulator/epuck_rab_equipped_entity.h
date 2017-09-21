@@ -46,7 +46,7 @@ public:
                             Real f_range,
                             SAnchor& s_anchor,
                             CEmbodiedEntity& c_entity_body,
-                            const CVector3& c_position = CVector3(),
+                            const CVector3& c_position = CVector3(0,0,0),
                             const CQuaternion& c_orientation = CQuaternion().FromEulerAngles(CRadians::ZERO,CRadians::ZERO,CRadians::ZERO));
 
 

@@ -167,7 +167,7 @@ CEPuckEntity::CEPuckEntity(const std::string& str_id,
       m_pcOmnidirectionalCameraEquippedEntity = new COmnidirectionalCameraEquippedEntity(this,
                                                                                          "omnidirectional_camera_0",
                                                                                          ToRadians(cAperture),
-                                                                                         CVector3(0.0f, 0.0f, OMNIDIRECTIONAL_CAMERA_ELEVATION));
+                                                                                         CVector3(0.0f, 0.0f, OMNIDIRECTIONAL_CAMERA_ELEVATION),CQuaternion().FromEulerAngles(CRadians::ZERO,CRadians::ZERO,CRadians::ZERO));
       AddComponent(*m_pcOmnidirectionalCameraEquippedEntity);
 
       /* IRCom equipped entity */

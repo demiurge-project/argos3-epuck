@@ -149,8 +149,12 @@ void CEPuckRABDefaultSensor::Update() {
     /*let's copy the entities in a proper data structure in a random order.*/
     for(CSet<CRABEquippedEntity*>::iterator itRABSendingEquipedEntity = setRABs.begin();
         itRABSendingEquipedEntity != setRABs.end(); ++itRABSendingEquipedEntity) {
-        size_t selectedIndex=m_pcRNG->Uniform(CRange<UInt32>(0,indexes.size()));
-        vRABentities[indexes.at(selectedIndex)]=static_cast<CEpuckRABEquippedEntity*>(*itRABSendingEquipedEntity);
+        size_t selectedIndex=indexes.size();
+	// Changed because of bug on cluster. To be fixed
+	while(selectedIndex >= indexes.size()){
+		selectedIndex=m_pcRNG->Uniform(CRange<UInt32>(0,indexes.size()));
+        }
+	vRABentities[indexes.at(selectedIndex)]=static_cast<CEpuckRABEquippedEntity*>(*itRABSendingEquipedEntity);
         indexes.erase(indexes.begin()+selectedIndex);
     }
     UInt32 unMessagesNeeded=m_uMaxNumberOfMessages;
