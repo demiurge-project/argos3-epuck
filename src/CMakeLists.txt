@@ -37,8 +37,7 @@ include(${CMAKE_SOURCE_DIR}/cmake/ARGoSPackaging.cmake)
 
 
 # Set up ARGoS compilation information
-include_directories(${CMAKE_SOURCE_DIR} ${ARGOS_INCLUDE_DIRS})
-link_directories(${ARGOS_LIBRARY_DIRS})
+include_directories(BEFORE ${CMAKE_SOURCE_DIR})
 
 #
 # Compile stuff
