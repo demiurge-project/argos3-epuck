@@ -34,8 +34,6 @@ namespace argos {
    void CEPuckIRComDefaultSensor::SetRobot(CComposableEntity& c_entity) {
       /* Assign RAB equipped entity to this sensor */
       m_pcIRComEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("rab[rab_1]");
-      /* Enable the RAB equipped entity */
-      m_pcIRComEquippedEntity->Enable();
       /* Get reference to controllable entity */
       m_pcControllableEntity = &c_entity.GetComponent<CControllableEntity>("controller");
    }
@@ -59,7 +57,9 @@ namespace argos {
          GetNodeAttribute(t_tree, "medium", strMedium);
          m_pcRangeAndBearingMedium = &(CSimulator::GetInstance().GetMedium<CRABMedium>(strMedium));
          /* Assign RAB entity to the medium */
-         m_pcRangeAndBearingMedium->AddEntity(*m_pcIRComEquippedEntity);
+         m_pcIRComEquippedEntity->SetMedium(*m_pcRangeAndBearingMedium);
+         /* Enable the RAB equipped entity */
+         m_pcIRComEquippedEntity->Enable();
       }
       catch(CARGoSException& ex) {
          THROW_ARGOSEXCEPTION_NESTED("Error initializing the range and bearing medium sensor", ex);
@@ -74,7 +74,7 @@ namespace argos {
       /* Delete old readings */
       ClearPackets();
       /* Get list of communicating RABs */
-      const CSet<CRABEquippedEntity*>& setRABs =
+      const CSet<CRABEquippedEntity*, SEntityComparator>& setRABs =
          m_pcRangeAndBearingMedium->GetRABsCommunicatingWith(*m_pcIRComEquippedEntity);
       /* Buffer for calculating the message--robot distance */
       CVector3 cVectorRobotToMessage;
