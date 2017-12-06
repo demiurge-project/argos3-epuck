@@ -32,7 +32,8 @@ namespace argos {
          std::string strMedium;
          GetNodeAttribute(t_tree, "medium", strMedium);
          m_pcLEDMedium = &CSimulator::GetInstance().GetMedium<CLEDMedium>(strMedium);
-         m_pcLEDEquippedEntity->AddToMedium(*m_pcLEDMedium);
+         m_pcLEDEquippedEntity->SetMedium(*m_pcLEDMedium);
+         m_pcLEDEquippedEntity->Enable();
       }
       catch(CARGoSException& ex) {
          THROW_ARGOSEXCEPTION_NESTED("Error initializing the e-puck RGB LEDs default actuator", ex);
