@@ -42,8 +42,6 @@ CEPuckRABDefaultSensor::CEPuckRABDefaultSensor() :
 void CEPuckRABDefaultSensor::SetRobot(CComposableEntity& c_entity) {
     /* Assign RAB equipped entity to this sensor */
     m_pcRangeAndBearingEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("rab[rab_0]");
-    /* Enable the RAB equipped entity */
-    m_pcRangeAndBearingEquippedEntity->Enable();
     /* Get reference to controllable entity */
     m_pcControllableEntity = &c_entity.GetComponent<CControllableEntity>("controller");
 }
@@ -104,7 +102,9 @@ void CEPuckRABDefaultSensor::Init(TConfigurationNode& t_tree) {
         GetNodeAttribute(t_tree, "medium", strMedium);
         m_pcRangeAndBearingMedium = &(CSimulator::GetInstance().GetMedium<CRABMedium>(strMedium));
         /* Assign RAB entity to the medium */
-        m_pcRangeAndBearingMedium->AddEntity(*m_pcRangeAndBearingEquippedEntity);
+        m_pcRangeAndBearingEquippedEntity->SetMedium(*m_pcRangeAndBearingMedium);
+        /* Enable the RAB equipped entity */
+        m_pcRangeAndBearingEquippedEntity->Enable();
     }
     catch(CARGoSException& ex) {
         THROW_ARGOSEXCEPTION_NESTED("Error initializing the range and bearing medium sensor", ex);
@@ -124,7 +124,7 @@ void CEPuckRABDefaultSensor::Update() {
     Real fPower;
 
     /* Get list of communicating RABs */
-    const CSet<CRABEquippedEntity*>& setRABs = m_pcRangeAndBearingMedium->GetRABsCommunicatingWith(*m_pcRangeAndBearingEquippedEntity);
+    const CSet<CRABEquippedEntity*, SEntityComparator>& setRABs = m_pcRangeAndBearingMedium->GetRABsCommunicatingWith(*m_pcRangeAndBearingEquippedEntity);
     /* Buffer for calculating the message distance and angle from the Sender to the Receiver */
     CVector3 cVectorSenderToReceiver;
     CRadians cSenderToReceiverVerticalAngle;
