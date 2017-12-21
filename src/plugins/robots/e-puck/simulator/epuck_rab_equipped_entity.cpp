@@ -238,7 +238,31 @@ void CEpuckRABEquippedEntitySpaceHashUpdater::operator()(CAbstractSpaceHash<CEpu
 /****************************************/
 /****************************************/
 
-REGISTER_STANDARD_SPACE_OPERATIONS_ON_ENTITY(CEpuckRABEquippedEntity);
+class CSpaceOperationAddCEpuckRABEquippedEntity : public CSpaceOperationAddEntity {
+public:
+    void ApplyTo(CSpace& c_space, CEpuckRABEquippedEntity& c_entity) {
+        /* Add entity to space - this ensures that the RAB entity
+         * gets an id before being added to the RAB medium */
+        c_space.AddEntity(c_entity);
+        /* Enable the RAB entity, if it's enabled - this ensures that
+         * the entity gets added to the RAB if it's enabled */
+        c_entity.SetEnabled(c_entity.IsEnabled());
+    }
+};
+
+class CSpaceOperationRemoveCEpuckRABEquippedEntity : public CSpaceOperationRemoveEntity {
+public:
+    void ApplyTo(CSpace& c_space, CEpuckRABEquippedEntity& c_entity) {
+        /* Disable the entity - this ensures that the entity is
+         * removed from the RAB medium */
+        c_entity.Disable();
+        /* Remove the RAB entity from space */
+        c_space.RemoveEntity(c_entity);
+    }
+};
+
+REGISTER_SPACE_OPERATION(CSpaceOperationAddEntity, CSpaceOperationAddCEpuckRABEquippedEntity, CEpuckRABEquippedEntity);
+REGISTER_SPACE_OPERATION(CSpaceOperationRemoveEntity, CSpaceOperationRemoveCEpuckRABEquippedEntity, CEpuckRABEquippedEntity);
 
 /****************************************/
 /****************************************/
