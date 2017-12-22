@@ -13,6 +13,9 @@ elseif(ARGOS_BUILD_FOR_LOCALEPUCK)
   set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ARGOS_PREFIX}/share/argos3/cmake)
   include_directories(${ARGOS_INCLUDE_DIRS})
   link_directories(${ARGOS_LIBRARY_DIRS})
+elseif(ARGOS_BUILD_FOR_EPUCK)
+  include_directories(${ARGOS_INCLUDE_DIRS})
+  link_directories(${ARGOS_LIBRARY_DIRS})
 endif()
 
 #
