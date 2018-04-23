@@ -61,12 +61,11 @@ public:
             m_cLEDRelativePos -= m_cCameraPos;
             m_cLEDRelativePosXY.Set(m_cLEDRelativePos.GetX(),
                                     m_cLEDRelativePos.GetY());
-            if(Abs(m_cLEDRelativePos.GetX()) < m_fGroundHalfRange &&
-                    Abs(m_cLEDRelativePos.GetY()) < m_fGroundHalfRange &&
-                    m_cLEDRelativePos.GetZ() < m_cCameraPos.GetZ() &&
-                    !GetClosestEmbodiedEntityIntersectedByRay(m_sIntersectionItem,
-                                                              m_cOcclusionCheckRay,
-                                                              m_cEmbodiedEntity)) {
+            if(m_cLEDRelativePos.GetZ() < m_cCameraPos.GetZ() &&
+                    m_cLEDRelativePos.Length() < m_fGroundHalfRange &&
+                                !GetClosestEmbodiedEntityIntersectedByRay(m_sIntersectionItem,
+                                                                          m_cOcclusionCheckRay,
+                                                                          m_cEmbodiedEntity)) {
                 if(m_fDistanceNoiseStdDev > 0.0f) {
                     m_cLEDRelativePosXY += CVector2(
                                 m_pcRNG->Gaussian(m_fDistanceNoiseStdDev),
@@ -198,12 +197,12 @@ void CEPuckOmnidirectionalCameraSensor::Update() {
         Real fGroundHalfRange = cCameraPos.GetZ() * Tan(m_pcOmnicamEntity->GetAperture());
         /* Prepare the operation */
         m_pcOperation->Setup(fGroundHalfRange);
-        /* Go through LED entities in box range */
-        m_pcLEDIndex->ForEntitiesInBoxRange(
+        /* Go through LED entities in sphere range */
+        m_pcLEDIndex->ForEntitiesInSphereRange(
                     CVector3(cCameraPos.GetX(),
                              cCameraPos.GetY(),
                              cCameraPos.GetZ() * 0.5f),
-                    CVector3(fGroundHalfRange, fGroundHalfRange, cCameraPos.GetZ() * 0.5f),
+                    fGroundHalfRange,
                     *m_pcOperation);
     }
 }
