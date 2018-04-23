@@ -27,7 +27,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 /*! \defgroup a_d Analogic/Digital conversion (ADC) 
  * 
  * \section intro_sec Introduction
- * The microcontroller p30f6014A has a 12-bit Analog-to-Digital
+ * The microcontroller p30F6014A has a 12-bit Analog-to-Digital
  * Converter (ADC). This package is built to manage this ADC.
  * \n The e-puck has three peripherals which take advantage from it.
  * - 1 3D accelerometer

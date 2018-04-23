@@ -25,7 +25,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  *
  * A little exemple for LEDs blinking with agenda (all LEDs blink with 100ms delay)
  * \code
- * #include <p30f6014A.h>
+ * #include <p30F6014A.h>
  * #include <motor_led/e_epuck_ports.h>
  * #include <motor_led/e_init_port.h>
  * #include <motor_led/advance_one_timer/e_led.h>
@@ -59,7 +59,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  * A little exemple to manage the IR remote (the body LED change his state when 
  * you press a button of the IR controller).
  * \code
- * #include <p30f6014A.h>
+ * #include <p30F6014A.h>
  * #include <motor_led/e_epuck_ports.h>
  * #include <motor_led/e_init_port.h>
  * #include <motor_led/advance_one_timer/e_remote_control.h>

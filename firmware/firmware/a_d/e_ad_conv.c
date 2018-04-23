@@ -25,7 +25,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  */
 
 
-//#include "p30f6014a.h"
+//#include "p30F6014a.h"
 #include "../motor_led/e_epuck_ports.h"
 
 /*! \brief Initialize all the A/D register needed */

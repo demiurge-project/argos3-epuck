@@ -8,7 +8,7 @@
 ;.IFNDEF _EPUCK_PORTS
 ;.def 	_EPUCK_PORTS
 
-.include "p30f6014A.inc"
+.include "p30F6014A.inc"
 
 ;/*********************GENERAL SETUP************************/
 

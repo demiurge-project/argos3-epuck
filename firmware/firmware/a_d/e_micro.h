@@ -23,7 +23,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  * A little exemple which takes the volume of micro1 and if the
  * sound level is more than 2000. The LED1 is turned on.
  * \code
- * #include <p30f6014A.h>
+ * #include <p30F6014A.h>
  * #include <motor_led/e_epuck_ports.h>
  * #include <motor_led/e_init_port.h>
  * #include <a_d/e_micro.h>

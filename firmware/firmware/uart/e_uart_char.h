@@ -60,7 +60,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  * 
  * \section intro_sec Introduction
  * This package contains all the ressources you need to control the UART
- * (universal asynchronous receiver transmitter). The microcontroller p30f6014A
+ * (universal asynchronous receiver transmitter). The microcontroller p30F6014A
  * has two UART controller: UART1 and UART2.
  * \warning In this package, the functions are written in ASM. We have "e_init_uartX.s" file
  * for the initializing functions, "e_uartX_rx.s" file for receiving data functions

@@ -30,7 +30,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  * A little exemple which turn the LED0 when an obstacle is detected
  * by the proximity sensor number 0.
  * \code
- * #include <p30f6014A.h>
+ * #include <p30F6014A.h>
  * #include <motor_led/e_epuck_ports.h>
  * #include <motor_led/e_init_port.h>
  * #include <a_d/e_prox.h>

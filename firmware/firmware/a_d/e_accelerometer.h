@@ -22,7 +22,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  *
  * A little exemple to read the accelerator.
  * \code
- * #include <p30f6014A.h>
+ * #include <p30F6014A.h>
  * #include <motor_led/e_epuck_ports.h>
  * #include <motor_led/e_init_port.h>
  * #include <a_d/e_accelerometer.h>

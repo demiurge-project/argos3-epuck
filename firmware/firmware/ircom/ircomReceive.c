@@ -29,7 +29,7 @@
 
 #include <stdio.h>
 #include <e_epuck_ports.h>
-#include <p30f6014a.h>
+#include <p30F6014A.h>
 
 // interface for end user
 void ircomListen ()

@@ -17,7 +17,7 @@ History:
 
 ; to be used with uart_txrx_char.h
 
-.include "p30f6014A.inc"
+.include "p30F6014A.inc"
 
 .section  .data, near
 

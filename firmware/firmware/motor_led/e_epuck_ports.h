@@ -75,7 +75,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  * the motors, the LED and the IR receiver of the e-puck. 
  * 
  * \subsection intro_subsec1_ports Ports
- * The standard port's name of the p30f6014A microcontroller is not explicit in the
+ * The standard port's name of the p30F6014A microcontroller is not explicit in the
  * e-puck context, so we need to redefine these names to make them more user friendly.
  * \n This work is made in the file: e_epuck_ports.h.
  * 
@@ -112,7 +112,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  * e_agenda.h for more information about agenda).
  *
  * \section timer_sect_timer Timer's problems
- * The p30f6014A microcontroller has five timers. The camera's package uses the
+ * The p30F6014A microcontroller has five timers. The camera's package uses the
  * timer4 and the timer5, so we can't exploit them to make the motors work when we
  * want to use the camera. For this reason we can't use the standard solution above.
  * \warning If you are using the camera, you have to work with one of this three
@@ -143,7 +143,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 #ifndef _EPUCK_PORTS
 #define _EPUCK_PORTS
 
-#include "p30f6014A.h"
+#include "p30F6014A.h"
 
 /*********************GENERAL SETUP************************/
 
@@ -157,7 +157,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
 #define NANOSEC   (FCY/1.0e9)		// 1nSec delay constant
 
 #define	TCY_PIC		(1e9/FCY)		//time instruction cycle in [ns] 
-#define	INTERRUPT_DELAY	(10*TCY_PIC)//delay to start an interrupt in [ns] (observe with p30f6014) 
+#define	INTERRUPT_DELAY	(10*TCY_PIC)//delay to start an interrupt in [ns] (observe with p30F6014) 
 
 #define TRUE	1
 #define FALSE	0

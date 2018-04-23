@@ -24,9 +24,9 @@ AR		= pic30-elf-ar
 RANLIB		= pic30-elf-ranlib
 STRIP		= pic30-elf-strip
 
-CC_FLAGS 	= -mcpu=30f6014a -I/usr/pic30-elf/include
-AS_FLAGS 	= -I/usr/share/pic30-support/inc -p=30f6014a
-LD_FLAGS 	= -Wl,--heap=512,-L/usr/pic30-elf/lib,-T/usr/share/pic30-support/gld/p30f6014a.gld
+CC_FLAGS 	= -mcpu=30F6014A -I/usr/pic30-elf/include
+AS_FLAGS 	= -I/usr/share/pic30-support/inc -p=30F6014A
+LD_FLAGS 	= -Wl,--heap=512,-L/usr/pic30-elf/lib,-T/usr/share/pic30-support/gld/p30F6014A.gld
 
 
 all : lib$(LIB_TARGET).a

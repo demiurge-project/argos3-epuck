@@ -27,7 +27,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  * \author Code: Borter Jean-Joel \n Doc: Jonathan Besuchet
  */
 
-#include "p30f6014A.h"
+#include "p30F6014A.h"
 #include "e_ad_conv.h"
 #include "../../motor_led/e_epuck_ports.h"
 

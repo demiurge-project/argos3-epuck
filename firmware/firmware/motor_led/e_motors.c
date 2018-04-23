@@ -31,7 +31,7 @@ EPFL Ecole polytechnique federale de Lausanne http://www.epfl.ch
  *
  * A little exemple for the motors (e-puck turn on himself)
  * \code
- * #include <p30f6014A.h>
+ * #include <p30F6014A.h>
  * #include <motor_led/e_epuck_ports.h>
  * #include <motor_led/e_init_port.h>
  * #include <motor_led/e_motors.h>

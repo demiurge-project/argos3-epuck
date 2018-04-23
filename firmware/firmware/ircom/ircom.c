@@ -23,7 +23,7 @@
 #ifndef IRCOM_C
 #define IRCOM_C
 
-#include <p30f6014a.h>
+#include <p30F6014A.h>
 #include <string.h>
 #include <e_epuck_ports.h>
 #include <a_d/advance_ad_scan/e_ad_conv.h>
