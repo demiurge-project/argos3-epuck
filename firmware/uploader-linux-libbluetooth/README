@@ -1,0 +1,16 @@
+epuck bluetooth uploader
+------------------------
+
+libbluetooth based uploader for e-puck
+(c) 2007 Stephane Magnenat (stephane at magnenat dot net) - Mobots group - LSRO1 - EPFL
+	
+Based on:
+-	epuckupload.c
+	Created by Olivier Michel on 12/15/06.
+	(inpired from epuckupload perl script by Xavier Raemy and Thomas Lochmatter)
+	Copyright 2006 Cyberbotics Ltd. All rights reserved.
+	
+-	libbluetooth samples from Internet
+
+This program uploads a hex file to an epuck using libbluetooth. No user
+intervention nor any /dev/ configuration is required.
