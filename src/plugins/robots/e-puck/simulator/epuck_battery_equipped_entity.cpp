@@ -3,7 +3,7 @@
  *
  */
 
-#include "battery_equipped_entity.h"
+#include "epuck_battery_equipped_entity.h"
 #include <argos3/core/simulator/space/space.h>
 
 namespace argos {
@@ -12,16 +12,16 @@ namespace argos {
 /****************************************/
 
 
-Real CBatteryEquippedEntity::BatteryLevel() const
+Real CEPuckBatteryEquippedEntity::BatteryLevel() const
 {
     return m_fBatteryLevel;
 }
 
-void CBatteryEquippedEntity::setBatteryLevel(const Real &fBatteryLevel)
+void CEPuckBatteryEquippedEntity::setBatteryLevel(const Real &fBatteryLevel)
 {
     m_fBatteryLevel = fBatteryLevel;
 }
-CBatteryEquippedEntity::CBatteryEquippedEntity(CComposableEntity* pc_parent) :
+CEPuckBatteryEquippedEntity::CEPuckBatteryEquippedEntity(CComposableEntity* pc_parent) :
     CEntity(pc_parent),
     m_fBatteryLevel(1){
 }
@@ -29,7 +29,7 @@ CBatteryEquippedEntity::CBatteryEquippedEntity(CComposableEntity* pc_parent) :
 /****************************************/
 /****************************************/
 
-CBatteryEquippedEntity::CBatteryEquippedEntity(CComposableEntity* pc_parent,
+CEPuckBatteryEquippedEntity::CEPuckBatteryEquippedEntity(CComposableEntity* pc_parent,
                                                const std::string& str_id) :
     CEntity(pc_parent, str_id),
     m_fBatteryLevel(1){
@@ -38,7 +38,7 @@ CBatteryEquippedEntity::CBatteryEquippedEntity(CComposableEntity* pc_parent,
 /****************************************/
 /****************************************/
 
-REGISTER_STANDARD_SPACE_OPERATIONS_ON_ENTITY(CBatteryEquippedEntity);
+REGISTER_STANDARD_SPACE_OPERATIONS_ON_ENTITY(CEPuckBatteryEquippedEntity);
 
 /****************************************/
 /****************************************/

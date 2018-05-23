@@ -16,7 +16,7 @@
 #include <argos3/plugins/simulator/entities/light_sensor_equipped_entity.h>
 #include <argos3/plugins/simulator/entities/omnidirectional_camera_equipped_entity.h>
 #include <argos3/plugins/simulator/entities/proximity_sensor_equipped_entity.h>
-#include <argos3/plugins/robots/e-puck/simulator/battery_equipped_entity.h>
+#include <argos3/plugins/robots/e-puck/simulator/epuck_battery_equipped_entity.h>
 #include <argos3/plugins/robots/e-puck/simulator/epuck_battery_sensor.h>
 #include <argos3/plugins/robots/e-puck/control_interface/ci_epuck_range_and_bearing_sensor.h>
 
@@ -123,7 +123,7 @@ CEPuckEntity::CEPuckEntity(const std::string& str_id,
                   m_pcEmbodiedEntity->GetOriginAnchor());
       /* Battery sensor equipped entity */
       m_pcBatteryEquippedEntity =
-              new CBatteryEquippedEntity(this,"battery_0");
+              new CEPuckBatteryEquippedEntity(this,"epuck_battery_0");
       AddComponent(*m_pcBatteryEquippedEntity);
       /* Light sensor equipped entity */
       m_pcLightSensorEquippedEntity =
@@ -150,7 +150,7 @@ CEPuckEntity::CEPuckEntity(const std::string& str_id,
                                                 CGroundSensorEquippedEntity::TYPE_GRAYSCALE,m_pcEmbodiedEntity->GetOriginAnchor());
       /* RAB equipped entity */
       m_pcRABEquippedEntity = new CEpuckRABEquippedEntity(this,
-                                                     "rab_0",
+                                                     "epuck_rab_0",
                                                      CCI_EPuckRangeAndBearingSensor::MAX_BYTES_RECEIVED,
                                                      0.8f,
                                                      m_pcEmbodiedEntity->GetOriginAnchor(),
@@ -177,7 +177,7 @@ CEPuckEntity::CEPuckEntity(const std::string& str_id,
        * (which will not change and will be always the RAB medium), we check whether the actuator we intersected is actually enabled or not.
        */
       m_pcIRComEquippedEntity = new CEpuckRABEquippedEntity(this,
-                                                            "rab_1",
+                                                            "epuck_rab_1",
                                                             1,
                                                             0.05f,
                                                             m_pcEmbodiedEntity->GetOriginAnchor(),
@@ -255,7 +255,7 @@ void CEPuckEntity::Init(TConfigurationNode& t_tree) {
                     m_pcEmbodiedEntity->GetOriginAnchor());
         /* Battery sensor equipped entity */
         m_pcBatteryEquippedEntity =
-                new CBatteryEquippedEntity(this,"battery_0");
+                new CEPuckBatteryEquippedEntity(this,"epuck_battery_0");
         AddComponent(*m_pcBatteryEquippedEntity);
         /* Light sensor equipped entity */
         m_pcLightSensorEquippedEntity =
@@ -282,7 +282,7 @@ void CEPuckEntity::Init(TConfigurationNode& t_tree) {
                                                   CGroundSensorEquippedEntity::TYPE_GRAYSCALE,m_pcEmbodiedEntity->GetOriginAnchor());
         /* RAB equipped entity */
         m_pcRABEquippedEntity = new CEpuckRABEquippedEntity(this,
-                                                       "rab_0",
+                                                       "epuck_rab_0",
                                                        CCI_EPuckRangeAndBearingSensor::MAX_BYTES_RECEIVED,
                                                        0.8f,
                                                        m_pcEmbodiedEntity->GetOriginAnchor(),
@@ -309,7 +309,7 @@ void CEPuckEntity::Init(TConfigurationNode& t_tree) {
          * (which will not change and will be always the RAB medium), we check whether the actuator we intersected is actually enabled or not.
          */
         m_pcIRComEquippedEntity = new CEpuckRABEquippedEntity(this,
-                                                              "rab_1",
+                                                              "epuck_rab_1",
                                                               1,
                                                               0.05f,
                                                               m_pcEmbodiedEntity->GetOriginAnchor(),

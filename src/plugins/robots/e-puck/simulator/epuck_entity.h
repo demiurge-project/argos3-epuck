@@ -18,7 +18,7 @@ namespace argos {
    class CLightSensorEquippedEntity;
    class COmnidirectionalCameraEquippedEntity;
    class CProximitySensorEquippedEntity;
-   class CBatteryEquippedEntity;
+   class CEPuckBatteryEquippedEntity;
    class CRABEquippedEntity;
 }
 
@@ -74,7 +74,7 @@ namespace argos {
       inline CProximitySensorEquippedEntity& GetProximitySensorEquippedEntity() {
          return *m_pcProximitySensorEquippedEntity;
       }
-      inline CBatteryEquippedEntity& GetBatteryEquippedEntity() {
+      inline CEPuckBatteryEquippedEntity& GetBatteryEquippedEntity() {
          return *m_pcBatteryEquippedEntity;
       }
 
@@ -106,7 +106,7 @@ namespace argos {
       CLightSensorEquippedEntity*            m_pcLightSensorEquippedEntity;
        COmnidirectionalCameraEquippedEntity*  m_pcOmnidirectionalCameraEquippedEntity;
       CProximitySensorEquippedEntity*        m_pcProximitySensorEquippedEntity;
-      CBatteryEquippedEntity*        m_pcBatteryEquippedEntity;
+      CEPuckBatteryEquippedEntity*        m_pcBatteryEquippedEntity;
       CEpuckRABEquippedEntity*                    m_pcRABEquippedEntity;
       CRABEquippedEntity*                    m_pcIRComEquippedEntity;
       CWheeledEntity*                        m_pcWheeledEntity;
