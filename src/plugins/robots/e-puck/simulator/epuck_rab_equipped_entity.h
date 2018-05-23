@@ -78,7 +78,7 @@ public:
     }
 
     virtual std::string GetTypeDescription() const {
-        return "rab";
+        return "epuck_rab";
     }
     CCI_EPuckRangeAndBearingActuator::SEmitter& GetEmitterForAngle(const CRadians& t_angle);
 

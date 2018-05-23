@@ -6,7 +6,7 @@
 #include <argos3/core/simulator/simulator.h>
 #include <argos3/core/simulator/entity/embodied_entity.h>
 #include <argos3/core/simulator/entity/composable_entity.h>
-#include <argos3/plugins/robots/e-puck/simulator/battery_equipped_entity.h>
+#include <argos3/plugins/robots/e-puck/simulator/epuck_battery_equipped_entity.h>
 
 #include "epuck_battery_sensor.h"
 
@@ -35,7 +35,7 @@ namespace argos {
 
    void CEPuckBatteryDefaultSensor::SetRobot(CComposableEntity& c_entity) {
       try {
-          m_pcBatteryEntity = &(c_entity.GetComponent<CBatteryEquippedEntity>("battery"));
+          m_pcBatteryEntity = &(c_entity.GetComponent<CEPuckBatteryEquippedEntity>("battery"));
          m_pcBatteryEntity->Enable();
       }
       catch(CARGoSException& ex) {

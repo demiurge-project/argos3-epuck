@@ -8,6 +8,7 @@
 
 namespace argos {
    class CEPuckBatteryDefaultSensor;
+   class CEPuckBatteryEquippedEntity;
 }
 
 #include <argos3/plugins/robots/e-puck/control_interface/ci_epuck_battery_sensor.h>
@@ -34,7 +35,7 @@ namespace argos {
    private:
 
       /** Reference to battery sensor equipped entity associated to this sensor */
-      CBatteryEquippedEntity* m_pcBatteryEntity;
+      CEPuckBatteryEquippedEntity* m_pcBatteryEntity;
 
    };
 
