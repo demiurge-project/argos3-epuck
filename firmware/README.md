@@ -1,7 +1,8 @@
-# Compilation and installation of the E-Puck firmware
+# Uploading the E-Puck firmware
 
-Firmware compiler: xc16-v1.34
-OS: Ubuntu 16.04 x64
+Compiler: `xc16-v1.34`
+
+OS: `Ubuntu 16.04 x64`
 
 ## 1- Install the XC16 compiler
 
@@ -13,13 +14,11 @@ Change the permissions for the installer:
 ```
 chmod u+x xc16-v1.34-full-install-linux-installer.run
 ```
-Run the installer:
+Run the installer and accept to add XC16 to the `$PATH` environment variable:
 ```
 sudo ./xc16-v1.34-full-install-linux-installer.run
 ```
-In the installation procces accept to "add xc16 to the $PATH environment variable".
-
-Reboot the terminal to load the new environment variable.
+Reboot the terminal to load `$PATH`.
 
 ## 2- Compile the E-Puck firmware
 
@@ -35,7 +34,7 @@ cd build
 cmake ..
 make
 ```
-Generate the epuck_firmware.hex file:
+Generate the `epuck_firmware.hex` file:
 ```
 cd firmware
 xc16-bin2hex epuck_firmware
@@ -54,7 +53,7 @@ Scan the available devices and make sure the robot is available:
 ```
 hcitool scan
 ```
-Compile the uploader epuckuploadbt:
+Compile the uploader `epuckuploadbt`:
 ```
 cd argos3-epuck/firmware/uploader-linux-libbluetooth
 make
@@ -73,13 +72,13 @@ exit
 ```
 Upload the firmware:
 ```
-./epuckuploadbt [path/to/epuck_firmware.hex ] [robot_ID]
+./epuckuploadbt [path/to/epuck_firmware.hex] [robot_ID]
 ```
 The following message will appear on the terminal:
 ```
 Press enter and then reset on the robot
 ```
-Follow the instructions, then you will see an indicator from the uploading process:
+After pushing the reset button the terminal will display the indicator:
 ```
 Uploading: #####################
 ```
