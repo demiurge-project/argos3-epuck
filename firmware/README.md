@@ -1,9 +1,9 @@
-#Compilation and installation of the E-Puck firmware
+# Compilation and installation of the E-Puck firmware
 
 Firmware compiler: xc16-v1.34
 OS: Ubuntu 16.04 x64
 
-##1- Install the XC16 compiler
+## 1- Install the XC16 compiler
 
 Download the XC16 installer: 
 ```
@@ -21,7 +21,7 @@ In the installation procces accept to "add xc16 to the $PATH environment variabl
 
 Reboot the terminal to load the new environment variable.
 
-##2- Compile the E-Puck firmware
+## 2- Compile the E-Puck firmware
 
 Clone the E-Puck repository:
 ```
@@ -41,7 +41,7 @@ cd firmware
 xc16-bin2hex epuck_firmware
 ```
 
-##3- Upload the firmware to the E-Puck:
+## 3- Upload the firmware to the E-Puck:
 
 Install bluetooth tools:
 ```
