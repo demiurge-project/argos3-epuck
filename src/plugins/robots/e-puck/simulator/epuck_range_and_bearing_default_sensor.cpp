@@ -41,7 +41,7 @@ CEPuckRABDefaultSensor::CEPuckRABDefaultSensor() :
 
 void CEPuckRABDefaultSensor::SetRobot(CComposableEntity& c_entity) {
     /* Assign RAB equipped entity to this sensor */
-    m_pcRangeAndBearingEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("rab[rab_0]");
+    m_pcRangeAndBearingEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("epuck_rab[epuck_rab_0]");
     /* Get reference to controllable entity */
     m_pcControllableEntity = &c_entity.GetComponent<CControllableEntity>("controller");
 }

@@ -15,7 +15,7 @@ namespace argos {
    /****************************************/
 
    void CEPuckIRComDefaultActuator::SetRobot(CComposableEntity& c_entity) {
-      m_pcRangeAndBearingEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("rab[rab_1]");
+      m_pcRangeAndBearingEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("epuck_rab[epuck_rab_1]");
       m_pcRangeAndBearingEquippedEntity->Enable();
       m_cData.Resize(m_pcRangeAndBearingEquippedEntity->GetMsgSize());
    }

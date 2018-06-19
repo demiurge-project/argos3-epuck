@@ -33,7 +33,7 @@ namespace argos {
 
    void CEPuckIRComDefaultSensor::SetRobot(CComposableEntity& c_entity) {
       /* Assign RAB equipped entity to this sensor */
-      m_pcIRComEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("rab[rab_1]");
+      m_pcIRComEquippedEntity = &c_entity.GetComponent<CEpuckRABEquippedEntity>("epuck_rab[epuck_rab_1]");
       /* Get reference to controllable entity */
       m_pcControllableEntity = &c_entity.GetComponent<CControllableEntity>("controller");
    }
@@ -218,4 +218,3 @@ namespace argos {
                    "   <controllers>"
                    , "Usable");
 }
-

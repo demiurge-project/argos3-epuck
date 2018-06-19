@@ -3,15 +3,15 @@
  *
  */
 
-#ifndef Battery_EQUIPPED_ENTITY_H
-#define Battery_EQUIPPED_ENTITY_H
+#ifndef EPUCK_Battery_EQUIPPED_ENTITY_H
+#define EPUCK_Battery_EQUIPPED_ENTITY_H
 
 #include <argos3/core/simulator/entity/entity.h>
 #include <argos3/core/utility/math/vector3.h>
 
 namespace argos {
 
-class CBatteryEquippedEntity : public CEntity {
+class CEPuckBatteryEquippedEntity : public CEntity {
 protected:
     Real m_fBatteryLevel;
 
@@ -19,9 +19,9 @@ public:
 
     ENABLE_VTABLE();
 
-    CBatteryEquippedEntity(CComposableEntity* pc_parent);
+    CEPuckBatteryEquippedEntity(CComposableEntity* pc_parent);
 
-    CBatteryEquippedEntity(CComposableEntity* pc_parent,
+    CEPuckBatteryEquippedEntity(CComposableEntity* pc_parent,
                            const std::string& str_id);
 
     virtual void Init(TConfigurationNode &t_tree){
@@ -31,7 +31,7 @@ public:
         CEntity::Init(t_tree);
     }
     virtual std::string GetTypeDescription() const {
-        return "battery";
+        return "epuck_battery";
     }
 
     Real BatteryLevel() const;
