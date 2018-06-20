@@ -8,6 +8,7 @@
 #include <argos3/core/utility/logging/argos_log.h>
 
 #include <cstring>
+#include <unistd.h>
 
 namespace argos {
 

@@ -99,6 +99,7 @@ namespace argos {
        * @param pt_lua_state
        */
       virtual void CreateLuaState(lua_State* pt_lua_state) {}
+      virtual void ReadingsToLuaState(lua_State* pt_lua_state) {}
 #endif
 
      protected:
