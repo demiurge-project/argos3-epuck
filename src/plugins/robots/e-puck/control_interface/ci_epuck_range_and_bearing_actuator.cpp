@@ -23,7 +23,7 @@ namespace argos {
     * The stack should have one array of size GetDataSize()
     * and values in the range [0,255]
     */
-   int LuaRABSetData(lua_State* pt_lua_state) {
+   int LuaEpuckRABSetData(lua_State* pt_lua_state) {
       if(lua_gettop(pt_lua_state) == 1) {
          /* Check parameters */
          luaL_checktype(pt_lua_state, 1, LUA_TTABLE);
@@ -63,11 +63,11 @@ namespace argos {
    void CCI_EPuckRangeAndBearingActuator::CreateLuaState(lua_State* pt_lua_state) {
       CLuaUtility::StartTable(pt_lua_state, "range_and_bearing");
       CLuaUtility::AddToTable(pt_lua_state, "_instance", this);
-      CLuaUtility::AddToTable(pt_lua_state, "set_data", &LuaRABSetData);
+      CLuaUtility::AddToTable(pt_lua_state, "set_data", &LuaEpuckRABSetData);
       CLuaUtility::EndTable(pt_lua_state);
    }
 #endif
-   
+
    /****************************************/
    /****************************************/
 
