@@ -12,7 +12,7 @@ the software modules for both the physical robot and its simulated version. Ther
 user can develop a control software for the E-puck and test it in a virtual environment and then port
 the same control software, without modifications, on the real E-puck. In order to be used on the
 real E-puck, the plugin requires the robots to be equipped with a Linux extension board (Gumstix Overo computer-on-module (COM)).
-Depending on the needs of the user, the capabilities of the basic model of the E-puck 
+Depending on the needs of   the user, the capabilities of the basic model of the E-puck
 can be enhanced with the following extensions: a ground sensor, a range-and-bearing board, and
 an Omnivision module.
 
@@ -23,7 +23,7 @@ Downloading ARGoS-Epuck
 
 You can download the development sources through git:
 
- $ git clone https://github.com/lgarattoni/argos3-epuck.git argos3-epuck
+ $ git clone https://github.com/demiurge-project/argos3-epuck argos3-epuck
 
 Compiling ARGoS-Epuck
 ---------------------
