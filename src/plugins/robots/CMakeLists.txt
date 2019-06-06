@@ -1,1 +1,1 @@
-add_subdirectory(e-puck)
+add_subdirectory(x-puck)

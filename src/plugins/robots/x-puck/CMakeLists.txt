@@ -1,0 +1,8 @@
+if(ARGOS_BUILD_FOR_SIMULATOR)
+  include(Interface.cmake)
+  include(SimLibrary.cmake)
+  include(VisionTools.cmake)
+elseif(ARGOS_BUILD_FOR_XPUCK)
+  include(Interface.cmake)
+  include(RealLibrary.cmake)
+endif()
