@@ -1,0 +1,17 @@
+# Author: Mary Katherine Heinrich <mkheinrich@gmail.com>, IRIDIA, 13-November-2019. Rhino
+newmtl Black_matte
+Ka 0.0000 0.0000 0.0000
+Kd 0.1725 0.1725 0.1725
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 1.0000
+Ns 0
+
+newmtl Transluscent
+Ka 0.0000 0.0000 0.0000
+Kd 0.9020 0.9020 0.9020
+Ks 1.0000 1.0000 1.0000
+Tf 0.0000 0.0000 0.0000
+d 0.3956
+Ns 100.9
+
