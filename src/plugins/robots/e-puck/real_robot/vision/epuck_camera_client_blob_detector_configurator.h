@@ -199,8 +199,8 @@ class MyLabel;
        Q_OBJECT
 
    public:
-       MyLabel(QWidget *parent = 0, Qt::WindowFlags f=0);
-       MyLabel(const QString &text, QWidget *parent=0, Qt::WindowFlags f=0);
+       MyLabel(QWidget *parent = 0, Qt::WindowFlags f=Qt::WindowFlags());
+       MyLabel(const QString &text, QWidget *parent=nullptr, Qt::WindowFlags f=Qt::WindowFlags());
        ~MyLabel();
 
    protected:
