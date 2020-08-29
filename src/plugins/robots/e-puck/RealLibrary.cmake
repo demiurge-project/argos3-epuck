@@ -55,7 +55,6 @@ set(ARGOS3_SOURCES_PLUGINS_ROBOTS_EPUCK
   ${ARGOS3_HEADERS_PLUGINS_ROBOTS_EPUCK_REALROBOT_VISION}
   # Base
   real_robot/real_epuck.cpp
-  real_robot/real_epuck_main.cpp
   real_robot/real_epuck_base.cpp
   real_robot/real_epuck_i2c_device.cpp
   # Sensors
