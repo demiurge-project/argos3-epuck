@@ -112,7 +112,7 @@ namespace argos {
                 Real alpha = CmOne / std::pow(beta, PixOne);
                 SetAlphaVariable(alpha);
                 SetBetaVariable(beta);
-            } catch (std::exception e) {
+            } catch (std::exception& e) {
                 LOGERR << "Error while computing transformation variables" << std::endl;
             }
         }

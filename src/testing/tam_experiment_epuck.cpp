@@ -52,21 +52,21 @@ void CEPuckController::Init(TConfigurationNode& t_node) {
    /* actuators */
    try {
       m_pcWheelsActuator = GetActuator<CCI_EPuckWheelsActuator>("epuck_wheels");
-   } catch (CARGoSException ex) {}
+   } catch (CARGoSException& ex) {}
    try {
       m_pcIRComActuator = GetActuator<CCI_EPuckIRComActuator>("epuck_ircom");
-   } catch (CARGoSException ex) {}
+   } catch (CARGoSException& ex) {}
    /* sensors */
    try {
       m_pcProximitySensor = GetSensor<CCI_EPuckProximitySensor>("epuck_proximity");
-   } catch (CARGoSException ex) {}
+   } catch (CARGoSException& ex) {}
    try {
       m_pcIRComSensor = GetSensor<CCI_EPuckIRComSensor>("epuck_ircom");
-   } catch (CARGoSException ex) {}
+   } catch (CARGoSException& ex) {}
    try {
        m_pcOmniCamera = GetSensor<CCI_EPuckOmnidirectionalCameraSensor>("epuck_omnidirectional_camera");
        m_pcOmniCamera->Enable();
-   } catch (CARGoSException ex) {}
+   } catch (CARGoSException& ex) {}
 }
 
 /****************************************/
@@ -126,10 +126,8 @@ void CEPuckController::ControlStep() {
            LOG<< "NO BLOB FOUND" << std::endl;
        }else{
            UInt32 max_area=0;
-           UInt32 led_on=0;
            for (std::vector<CCI_EPuckOmnidirectionalCameraSensor::SBlob*>::iterator it = allBlobs.begin(); it != allBlobs.end(); ++it) {
                if(max_area<(*it)->Area){
-                   led_on=(*it)->Angle.UnsignedNormalize().GetValue() * 8.0f/CRadians::TWO_PI.GetValue();
                    max_area=(*it)->Area;
                }
                LOG<< "Color: " << (*it)->Color << std::endl;

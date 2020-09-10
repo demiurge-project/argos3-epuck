@@ -172,7 +172,7 @@ void CEPuckCameraClientMainWindow::GetAttributes() {
        */
     CByteArray cBuffer;
     m_cSocket.ReceiveByteArray(cBuffer);
-    printf("Array received %d\n",cBuffer.Size());
+    printf("Array received %d\n",(int)cBuffer.Size());
     /* Image grabber */
     m_pcImageGrabberConf->SetImageWidth(cBuffer.PopFront<UInt32>());
     m_pcImageGrabberConf->SetImageHeight(cBuffer.PopFront<UInt32>());

@@ -86,38 +86,38 @@ void CWatcherController::Init(TConfigurationNode& t_node) {
     /* actuators */
     try {
         m_pcWheelsActuator = GetActuator<CCI_EPuckWheelsActuator>("epuck_wheels");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcLEDsActuator = GetActuator<CCI_EPuckBaseLEDsActuator>("epuck_base_leds");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcRGBLEDsActuator = GetActuator<CCI_EPuckRGBLEDsActuator>("epuck_rgb_leds");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcRABActuator = GetActuator<CCI_EPuckRangeAndBearingActuator>("epuck_range_and_bearing");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcIRComActuator = GetActuator<CCI_EPuckIRComActuator>("epuck_ircom");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     /* sensors */
     try {
         m_pcProximitySensor = GetSensor<CCI_EPuckProximitySensor>("epuck_proximity");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcLightSensor = GetSensor<CCI_EPuckLightSensor>("epuck_light");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcGroundSensor = GetSensor<CCI_EPuckGroundSensor>("epuck_ground");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcRABSensor = GetSensor<CCI_EPuckRangeAndBearingSensor>("epuck_range_and_bearing");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcIRComSensor = GetSensor<CCI_EPuckIRComSensor>("epuck_ircom");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
     try {
         m_pcCamera = GetSensor<CCI_EPuckOmnidirectionalCameraSensor>("epuck_omnidirectional_camera");
-    } catch (CARGoSException ex) {}
+    } catch (CARGoSException& ex) {}
 }
 
 /****************************************/

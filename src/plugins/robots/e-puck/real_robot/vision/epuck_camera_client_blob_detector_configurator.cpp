@@ -22,6 +22,7 @@
 #include <math.h>
 #include <iostream>
 #include <fstream>
+#include <memory>
 namespace argos {
 
 /****************************************/
