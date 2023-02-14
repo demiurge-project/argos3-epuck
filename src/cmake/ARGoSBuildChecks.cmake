@@ -3,10 +3,11 @@
 #
 if(ARGOS_BUILD_FOR_SIMULATOR)
   find_package(PkgConfig)
-  pkg_check_modules(ARGOS REQUIRED argos3_simulator)
+  find_package(ARGoS REQUIRED)
   set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ARGOS_PREFIX}/share/argos3/cmake)
-  include_directories(${ARGOS_INCLUDE_DIRS})
-  link_directories(${ARGOS_LIBRARY_DIRS})
+  include_directories(${CMAKE_SOURCE_DIR} ${ARGOS_INCLUDE_DIRS})
+  link_directories(${ARGOS_LIBRARY_DIR})
+  link_libraries(${ARGOS_LDFLAGS})
 elseif(ARGOS_BUILD_FOR_LOCALEPUCK)
   find_package(PkgConfig)
   pkg_check_modules(ARGOS REQUIRED argos3_localepuck)
@@ -32,7 +33,7 @@ endif (NOT ARGOS_BUILD_FOR_EPUCK)
 # Check for Qt and OpenGL when compiling for the simulator
 #
 if(ARGOS_BUILD_FOR_SIMULATOR)
-  include(ARGoSCheckQTOpenGL)
+  include(FindARGoSQTOpenGL)
 endif(ARGOS_BUILD_FOR_SIMULATOR)
 
 #
